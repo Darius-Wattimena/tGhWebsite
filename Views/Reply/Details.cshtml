@@ -1,0 +1,50 @@
+﻿@model tGhWebsite.Models.Reply
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reply</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic.TopicSubject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic.TopicSubject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReplyContext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReplyContext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReplyDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReplyDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReplyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

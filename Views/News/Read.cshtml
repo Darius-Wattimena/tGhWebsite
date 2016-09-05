@@ -1,0 +1,13 @@
+﻿@model tGhWebsite.Models.News
+@{
+    ViewBag.Title = "Read";
+}
+<div id="features">
+    <div class="row section group animate-this">
+        <div class="col-twelve">
+            <h2>@Html.DisplayFor(model => model.NewsTitel)</h2>
+            @Html.DisplayFor(model => model.NewsContext)
+        </div>
+    </div>
+</div>
+

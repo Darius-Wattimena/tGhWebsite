@@ -17,12 +17,11 @@ namespace tGhWebsite.Models
         public string UserUrl { get; set; }
         public string UserSteam { get; set; }
         public string UserRegistrationIp { get; set; }
-
-        public int UserDateOfBirth { get; set; }
-        public int UserNumPosts { get; set; }
-        public int UserKarma { get; set; }
-        public int UserLastVisit { get; set; }
-        public int UserRegistrationDate { get; set; }
+        public int? UserNumPosts { get; set; }
+        public int? UserKarma { get; set; }
+        public int? UserLastVisit { get; set; }
+        public int? UserRegistrationDate { get; set; }
+        public int? UserDateOfBirth { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

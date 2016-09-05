@@ -1,0 +1,14 @@
+﻿#dynmap {
+    position: relative;
+    background-color: White;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center top;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	text-align: center;
+	padding-top: 4rem;
+    padding-bottom: 15rem;
+	overflow: hidden;
+}

@@ -1,0 +1,90 @@
+﻿@model tGhWebsite.Models.Topic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Topic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategory.SubCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategory.SubCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicSubject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicSubject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicContext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicContext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicCreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicCreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicViews)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicViews)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThreadReply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThreadReply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastReplyUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastReplyUsername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastReplyCreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastReplyCreateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TopicId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,4 +1,6 @@
-﻿namespace tGhWebsite.Models
+﻿using System;
+
+namespace tGhWebsite.Models
 {
     public class News
     {

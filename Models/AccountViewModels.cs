@@ -69,23 +69,18 @@ namespace tGhWebsite.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Required]
         public string UserDisplayName { get; set; }
-        public string UserTitel { get; set; }
-        public string UserSignature { get; set; }
-        public string UserTimezone { get; set; }
+
         public string UserLocation { get; set; }
+
         public string UserRealName { get; set; }
+
         public string UserUrl { get; set; }
+
         public string UserSteam { get; set; }
-        public string UserRegistrationIp { get; set; }
 
-        public int UserDateOfBirth { get; set; }
-        public int UserNumPosts { get; set; }
-        public int UserKarma { get; set; }
-        public int UserLastVisit { get; set; }
-        public int UserRegistrationDate { get; set; }
-
-
+        public int? UserDateOfBirth { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

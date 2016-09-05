@@ -3,22 +3,22 @@
     ViewBag.Title = "Register";
 }
 <div id="features">
-    <div class="row section-intro group animate-this">
+    <div class="row section group animate-this">
         <div class="col-twelve">
             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <h4 class="text-left">Create a new account.</h4>
                 @Html.ValidationSummary("", new { @class = "text-danger" })
-                <div class="col-four">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                </div>
-                <div class="col-eight">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                </div>
-                <div class="col-four">
-                    @Html.LabelFor(m => m.UserDisplayName, "Display Name", new { @class = "col-md-2 control-label" })
-                </div>
+                    <div class="col-four">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    </div>
+                    <div class="col-eight">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="col-four">
+                        @Html.LabelFor(m => m.UserDisplayName, "Display Name", new { @class = "col-md-2 control-label" })
+                    </div>
                     <div class="col-eight">
                         @Html.TextBoxFor(m => m.UserDisplayName, new { @class = "form-control" })
                     </div>
@@ -40,19 +40,19 @@
                         @Html.LabelFor(m => m.UserRealName, "Real Name", new { @class = "col-md-2 control-label" })
                     </div>
                     <div class="col-eight">
-                        @Html.TextBoxFor(m => m.UserRealName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.UserRealName, new {@class = "form-control"})
+                    </div>
+                    <div class="col-four">
+                        @Html.LabelFor(m => m.UserDateOfBirth, "Real Name", new { @class = "col-md-2 control-label" })
+                    </div>
+                    <div class="col-eight">
+                        @Html.TextBoxFor(m => m.UserDateOfBirth, new { @class = "form-control" })
                     </div>
                     <div class="col-four">
                         @Html.LabelFor(m => m.UserLocation, "Location", new { @class = "col-md-2 control-label" })
                     </div>
                     <div class="col-eight">
                         @Html.TextBoxFor(m => m.UserLocation, new { @class = "form-control" })
-                    </div>
-                    <div class="col-four">
-                        @Html.LabelFor(m => m.UserDateOfBirth, "Date of birth", new { @class = "col-md-2 control-label" })
-                    </div>
-                    <div class="col-eight">
-                        @Html.TextBoxFor(m => m.UserDateOfBirth, new { @class = "form-control" })
                     </div>
                     <div class="col-four">
                         @Html.LabelFor(m => m.UserUrl, "Website link", new { @class = "col-md-2 control-label" })

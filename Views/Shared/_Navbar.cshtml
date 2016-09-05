@@ -1,18 +1,26 @@
-﻿@using System.Activities.Expressions
-<nav id="menu-nav-wrap">
+﻿<nav id="menu-nav-wrap">
 
     <h3>Navigation</h3>
     <ul class="nav-list">
-        <li><a class="smoothscroll" href="#intro" title="">Home</a></li>
-        <li><a class="smoothscroll" href="#news" title="">News</a></li>
-        <li><a class="smoothscroll" href="#forum" title="">Forum</a></li>
-        <li><a class="smoothscroll" href="#about" title="">About Us</a></li>
-        <li><a class="smoothscroll" href="#contact" title="">Contact</a></li>
+        <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: null)</li>
+        <li>@Html.ActionLink("DynMap", "Index", "Dynmap", routeValues: null, htmlAttributes: null)</li>
     </ul>
-
-    <div class="action">
-        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button" })
-        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "button" })
-    </div>
+    @using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+            <a class="button" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    }
+    else
+    {
+        <div class="action">
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button" })
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "button" })
+        </div>
+    }
 </nav>
 <div id="main-content-wrap">
