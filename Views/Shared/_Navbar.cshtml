@@ -1,0 +1,18 @@
+﻿@using System.Activities.Expressions
+<nav id="menu-nav-wrap">
+
+    <h3>Navigation</h3>
+    <ul class="nav-list">
+        <li><a class="smoothscroll" href="#intro" title="">Home</a></li>
+        <li><a class="smoothscroll" href="#news" title="">News</a></li>
+        <li><a class="smoothscroll" href="#forum" title="">Forum</a></li>
+        <li><a class="smoothscroll" href="#about" title="">About Us</a></li>
+        <li><a class="smoothscroll" href="#contact" title="">Contact</a></li>
+    </ul>
+
+    <div class="action">
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button" })
+        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "button" })
+    </div>
+</nav>
+<div id="main-content-wrap">
