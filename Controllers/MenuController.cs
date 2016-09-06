@@ -18,5 +18,20 @@ namespace tGhWebsite.Controllers
         {
             return PartialView("~/Views/Shared/_Header.cshtml");
         }
+
+        public PartialViewResult _AdminNavbar()
+        {
+            return PartialView("~/Views/Shared/_AdminNavbar.cshtml");
+        }
+        
+        public PartialViewResult _AdminHeader()
+        {
+            return PartialView("~/Views/Shared/_AdminHeader.cshtml");
+        }
+
+        public PartialViewResult _AdminFooter()
+        {
+            return PartialView("~/Views/Shared/_AdminFooter.cshtml");
+        }
     }
 }

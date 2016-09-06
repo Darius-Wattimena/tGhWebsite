@@ -19,7 +19,7 @@ namespace tGhWebsite.BL
         /// </summary>
         /// <param name="unixtime">Een UnixTime Value</param>
         /// <returns>DateTime</returns>
-        public static DateTime ToDateTime(long unixtime)
+        public static DateTime ToDateTime(int unixtime)
         {
             var sTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             return sTime.AddSeconds(unixtime);

@@ -151,6 +151,22 @@ namespace tGhWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user2 = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    UserDisplayName = model.UserDisplayName,
+                    UserTitel = null,
+                    UserSignature = null,
+                    UserTimezone = null,
+                    UserLocation = model.UserLocation,
+                    UserRealName = model.UserRealName,
+                    UserUrl = model.UserUrl,
+                    UserSteam = model.UserSteam,
+                    UserRegistrationIp = "123/456/678/",
+                    UserDateOfBirth = model.UserDateOfBirth,
+
+                };
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

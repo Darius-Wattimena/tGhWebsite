@@ -10,8 +10,8 @@ namespace tGhWebsite.Models
         public List<News> NewsList { get; set; }
         public List<Rank> RankList { get; set; }
         public List<Reply> ReplyList { get; set; }
-        public List<Roles> Roles { get; set; }
-        public List<SubCategory> SubCategories { get; set; }
-        public List<Topic> Topics { get; set; }
+        public List<Roles> RoleList { get; set; }
+        public List<SubCategory> SubCategoryList { get; set; }
+        public List<Topic> TopicLists { get; set; }
     }
 }

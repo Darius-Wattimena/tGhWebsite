@@ -1,33 +1,39 @@
-﻿@model IEnumerable<tGhWebsite.Models.Roles>
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@model List<tGhWebsite.Models.Roles>
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Index</h2>
 
-<h2>Index</h2>
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            Role Name
+                        </th>
+                        <th></th>
+                    </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RoleName)
-        </th>
-        <th></th>
-    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RoleName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RolesId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RolesId })
+                            </td>
+                        </tr>
+                    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoleName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RolesId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RolesId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RolesId })
-        </td>
-    </tr>
-}
-
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

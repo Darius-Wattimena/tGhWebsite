@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using tGhWebsite.Models;
 
@@ -21,9 +18,9 @@ namespace tGhWebsite.Controllers
                 NewsList = db.News.ToList(),
                 RankList = db.Rank.ToList(),
                 ReplyList = db.Reply.ToList(),
-                SubCategories = db.SubCategory.ToList(),
-                Roles = db.MyRoles.ToList(),
-                Topics = db.Topic.ToList()
+                SubCategoryList = db.SubCategory.ToList(),
+                RoleList = db.MyRoles.ToList(),
+                TopicLists = db.Topic.ToList()
             };
             return View(adminViewModel);
         }

@@ -2,8 +2,8 @@
 
     <h3>Navigation</h3>
     <ul class="nav-list">
-        <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: null)</li>
-        <li>@Html.ActionLink("DynMap", "Index", "Dynmap", routeValues: null, htmlAttributes: null)</li>
+        <li>@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+        <li>@Html.ActionLink("DynMap", "Index", "Dynmap", null, null)</li>
     </ul>
     @using Microsoft.AspNet.Identity
     @if (Request.IsAuthenticated)
@@ -11,15 +11,15 @@
         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
         {
             @Html.AntiForgeryToken()
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", null, new {title = "Manage"})
             <a class="button" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         }
     }
     else
     {
         <div class="action">
-            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button" })
-            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "button" })
+            @Html.ActionLink("Register", "Register", "Account", null, new { id = "registerLink", @class = "button" })
+            @Html.ActionLink("Log in", "Login", "Account", null, new { id = "loginLink", @class = "button" })
         </div>
     }
 </nav>
