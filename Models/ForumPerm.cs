@@ -10,7 +10,7 @@
         public int PostReply { get; set; }
         public int PostThreads { get; set; }
 
-        public virtual Roles Roles { get; set; }
+        public virtual UserRole Roles { get; set; }
         public virtual SubCategory SubCategory { get; set; }
     }
 }

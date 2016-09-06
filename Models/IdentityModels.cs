@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -22,6 +23,9 @@ namespace tGhWebsite.Models
         public int? UserLastVisit { get; set; }
         public int? UserRegistrationDate { get; set; }
         public int? UserDateOfBirth { get; set; }
+        public int? UserRoleId { get; set; }
+
+        public virtual UserRole UserRole { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -33,7 +37,7 @@ namespace tGhWebsite.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", false)
         {
         }
 
@@ -43,7 +47,7 @@ namespace tGhWebsite.Models
         public DbSet<News> News { get; set; }
         public DbSet<Rank> Rank { get; set; }
         public DbSet<Reply> Reply { get; set; }
-        public DbSet<Roles> MyRoles { get; set; }
+        public DbSet<UserRole> UserRole { get; set; }
         public DbSet<SubCategory> SubCategory { get; set; }
         public DbSet<Topic> Topic { get; set; }
 

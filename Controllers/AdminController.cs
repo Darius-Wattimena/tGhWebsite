@@ -10,7 +10,7 @@ namespace tGhWebsite.Controllers
 
         public ActionResult Index()
         {
-            var adminViewModel = new AdminViewModel()
+            var vm = new AdminViewModel
             {
                 BanList = db.Ban.ToList(),
                 CategoryList = db.Category.ToList(),
@@ -19,10 +19,26 @@ namespace tGhWebsite.Controllers
                 RankList = db.Rank.ToList(),
                 ReplyList = db.Reply.ToList(),
                 SubCategoryList = db.SubCategory.ToList(),
-                RoleList = db.MyRoles.ToList(),
-                TopicLists = db.Topic.ToList()
+                UserRoleList = db.UserRole.ToList(),
+                TopicLists = db.Topic.ToList(),
             };
-            return View(adminViewModel);
+
+            return View(vm);
+        }
+
+        public ActionResult UserManagement()
+        {
+            return View(db.Users.ToList());
         }
     }
 }
+/*
+ * @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.UserDisplayName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.UserDateOfBirth)</td>
+                        </tr>
+                    }
+*/

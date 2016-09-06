@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using tGhWebsite.BL;
 using tGhWebsite.Models;
 
 namespace tGhWebsite.Controllers
@@ -75,7 +74,7 @@ namespace tGhWebsite.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -90,6 +89,7 @@ namespace tGhWebsite.Controllers
                     return View(model);
             }
         }
+        
 
         //
         // GET: /Account/VerifyCode
@@ -149,35 +149,38 @@ namespace tGhWebsite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            var db = new ApplicationDbContext();
             if (ModelState.IsValid)
             {
-                var user2 = new ApplicationUser
-                {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    UserDisplayName = model.UserDisplayName,
-                    UserTitel = null,
-                    UserSignature = null,
-                    UserTimezone = null,
-                    UserLocation = model.UserLocation,
-                    UserRealName = model.UserRealName,
-                    UserUrl = model.UserUrl,
-                    UserSteam = model.UserSteam,
-                    UserRegistrationIp = "123/456/678/",
-                    UserDateOfBirth = model.UserDateOfBirth,
-
-                };
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var editUser = db.Users.FirstOrDefault(x => x.UserName == model.UserDisplayName);
+                    if (editUser != null)
+                    {
+                        editUser.UserDisplayName = model.UserDisplayName;
+                        editUser.UserTitel = "Test123";
+                        editUser.UserSignature = "Test456";
+                        editUser.UserTimezone = null;
+                        editUser.UserLocation = null;
+                        editUser.UserRealName = null;
+                        editUser.UserUrl = null;
+                        editUser.UserSteam = null;
+                        editUser.UserRegistrationIp = "1.1.1.1";
+                        editUser.UserDateOfBirth = null;
+                        editUser.UserRegistrationDate = DateTime.UtcNow.ToUnix();
+                        editUser.UserRoleId = 1;
+                        db.Entry(editUser);
+                        db.SaveChanges();
+                    }
 
                     return RedirectToAction("Index", "Home");
                 }

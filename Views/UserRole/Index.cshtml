@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-@model List<tGhWebsite.Models.Roles>
+@model List<tGhWebsite.Models.UserRole>
 <div id="page-wrapper" class="gray-bg dashbard-1">
     <div class="content-main">
         <div class="grid-form">
@@ -23,11 +23,11 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.RoleName)
+                                @Html.DisplayFor(modelItem => item.UserRoleName)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.RolesId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.RolesId })
+                                @Html.ActionLink("Edit", "Edit", new { id = item.UserRoleId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.UserRoleId })
                             </td>
                         </tr>
                     }

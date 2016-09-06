@@ -1,0 +1,56 @@
+﻿@model IEnumerable<tGhWebsite.Models.ApplicationUser>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>User Management</h2>
+
+                <p>
+                    @Html.ActionLink("Create New", "Register", "Account")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>Username/Email</th>
+                        <th>Display Name</th>
+                        <th>Real Name</th>
+                        <th>Location</th>
+                        <th>User Ip</th>
+                        <th>Last Visit</th>
+                        <th>Registration Date</th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserDisplayName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRealName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRegistrationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRegistrationIp)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", "User", new {name = item.UserName}, null) |
+                                @Html.ActionLink("Delete", "Delete", "User", new {name = item.UserName}, null)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

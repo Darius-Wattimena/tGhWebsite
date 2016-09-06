@@ -1,0 +1,48 @@
+﻿@model tGhWebsite.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Details</h2>
+
+                <h3>@Html.DisplayFor(model => model.UserDisplayName) | @Html.DisplayFor(model => model.UserName)</h3>
+                <dl class="dl-horizontal">
+                    <dt>Role</dt>
+                    <dd>@Html.DisplayFor(model => model.MyRoles.RoleName)</dd>
+                    <dt>Display Name</dt>
+                    <dd>@Html.DisplayFor(model => model.UserDisplayName)</dd>
+                    <dt>Real Name</dt>
+                    <dd>@Html.DisplayFor(model => model.UserRealName)</dd>
+                    <dt>User Location</dt>
+                    <dd>@Html.DisplayFor(model => model.UserLocation)</dd>
+                    <dt>Date of birth</dt>
+                    <dd>@Html.DisplayFor(model => model.UserDateOfBirth)</dd>
+                    <dt>User Titel</dt>
+                    <dd>@Html.DisplayFor(model => model.UserTitel)</dd>
+                    <dt>Website Url</dt>
+                    <dd>@Html.DisplayFor(model => model.UserUrl)</dd>
+                    <dt>Website Steam</dt>
+                    <dd>@Html.DisplayFor(model => model.UserSteam)</dd>
+                    <dt>Number of posts</dt>
+                    <dd>@Html.DisplayFor(model => model.UserNumPosts)</dd>
+                    <dt>Karma</dt>
+                    <dd>@Html.DisplayFor(model => model.UserKarma)</dd>
+                    <dt>Last Visit</dt>
+                    <dd>@Html.DisplayFor(model => model.UserLastVisit)</dd>
+                    <dt>Registration Date</dt>
+                    <dd>@Html.DisplayFor(model => model.UserRegistrationDate)</dd>
+
+
+                </dl>
+                <div class="form-actions no-color">
+                    @Html.ActionLink("Back to List", "UserManagement", "Admin")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

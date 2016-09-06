@@ -12,7 +12,7 @@ namespace tGhWebsite.Models
         public List<Category> CategoryList { get; set; }
         public List<Rank> RankList { get; set; }
         public List<Reply> ReplyList { get; set; }
-        public List<Roles> Roles { get; set; }
+        public List<UserRole> Roles { get; set; }
         public List<SubCategory> SubCategories { get; set; }
         public List<Topic> Topics { get; set; }
     }

@@ -1,5 +1,4 @@
-﻿@model tGhWebsite.Models.Category
-
+﻿@model tGhWebsite.Models.UserRole
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -12,15 +11,15 @@
 
                 <h3>Are you sure you want to delete this?</h3>
                 <div>
-                    <h4>Category</h4>
-                    <hr />
+                    <h4>Roles</h4>
+                    <hr/>
                     <dl class="dl-horizontal">
                         <dt>
-                            @Html.DisplayNameFor(model => model.CategoryName)
+                            @Html.DisplayNameFor(model => model.UserRoleName)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.CategoryName)
+                            @Html.DisplayFor(model => model.UserRoleName)
                         </dd>
 
                     </dl>
@@ -30,7 +29,7 @@
                         @Html.AntiForgeryToken()
 
                         <div class="form-actions no-color">
-                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            <input type="submit" value="Delete" class="btn btn-default"/> |
                             @Html.ActionLink("Back to List", "Index")
                         </div>
                     }

@@ -10,14 +10,14 @@ using tGhWebsite.Models;
 
 namespace tGhWebsite.Controllers
 {
-    public class RoleController : Controller
+    public class UserRoleController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Role
         public ActionResult Index()
         {
-            return View(db.MyRoles.ToList());
+            return View(db.UserRole.ToList());
         }
 
         // GET: Role/Create
@@ -31,16 +31,16 @@ namespace tGhWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RolesId,RoleName")] Roles roles)
+        public ActionResult Create([Bind(Include = "UserRolesId,UserRoleName")] UserRole userRoles)
         {
             if (ModelState.IsValid)
             {
-                db.MyRoles.Add(roles);
+                db.UserRole.Add(userRoles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(roles);
+            return View(userRoles);
         }
 
         // GET: Role/Edit/5
@@ -50,12 +50,12 @@ namespace tGhWebsite.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Roles roles = db.MyRoles.Find(id);
-            if (roles == null)
+            var userRoles = db.UserRole.Find(id);
+            if (userRoles == null)
             {
                 return HttpNotFound();
             }
-            return View(roles);
+            return View(userRoles);
         }
 
         // POST: Role/Edit/5
@@ -63,15 +63,15 @@ namespace tGhWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RolesId,RoleName")] Roles roles)
+        public ActionResult Edit([Bind(Include = "UserRolesId,UserRoleName")] UserRole userRoles)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(roles).State = EntityState.Modified;
+                db.Entry(userRoles).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(roles);
+            return View(userRoles);
         }
 
         // GET: Role/Delete/5
@@ -81,12 +81,12 @@ namespace tGhWebsite.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Roles roles = db.MyRoles.Find(id);
-            if (roles == null)
+            var userRoles = db.UserRole.Find(id);
+            if (userRoles == null)
             {
                 return HttpNotFound();
             }
-            return View(roles);
+            return View(userRoles);
         }
 
         // POST: Role/Delete/5
@@ -94,8 +94,8 @@ namespace tGhWebsite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Roles roles = db.MyRoles.Find(id);
-            db.MyRoles.Remove(roles);
+            UserRole UserRoles = db.UserRole.Find(id);
+            db.UserRole.Remove(UserRoles);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
