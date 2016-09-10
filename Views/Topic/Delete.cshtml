@@ -1,96 +1,104 @@
 ﻿@model tGhWebsite.Models.Topic
 
 @{
-    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Delete</h2>
 
-<h2>Delete</h2>
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <h4>Topic</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SubCategory.SubCategoryName)
+                        </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Topic</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SubCategory.SubCategoryName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SubCategory.SubCategoryName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SubCategory.SubCategoryName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserId)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.UserId)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TopicSubject)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TopicSubject)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TopicSubject)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TopicSubject)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TopicContext)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TopicContext)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TopicContext)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TopicContext)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TopicCreateDate)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TopicCreateDate)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TopicCreateDate)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TopicCreateDate)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TopicViews)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TopicViews)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TopicViews)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TopicViews)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ThreadReply)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ThreadReply)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ThreadReply)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ThreadReply)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastReplyUsername)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastReplyUsername)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LastReplyUsername)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastReplyUsername)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastReplyCreateDate)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastReplyCreateDate)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LastReplyCreateDate)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastReplyCreateDate)
-        </dd>
+                    </dl>
 
-    </dl>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
-    }
+    </div>
 </div>

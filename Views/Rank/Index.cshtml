@@ -1,39 +1,46 @@
 ﻿@model IEnumerable<tGhWebsite.Models.Rank>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Index</h2>
 
-<h2>Index</h2>
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RankName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RankMinPost)
+                        </th>
+                        <th></th>
+                    </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RankName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RankMinPost)
-        </th>
-        <th></th>
-    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RankName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RankMinPost)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RankId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RankId })
+                            </td>
+                        </tr>
+                    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RankName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RankMinPost)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RankId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RankId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RankId })
-        </td>
-    </tr>
-}
-
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

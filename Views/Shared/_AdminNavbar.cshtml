@@ -27,30 +27,40 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Dashboards</span> </a>
+                                <a href="@Url.Action("Index", "Home")" class="hvr-bounce-to-right"><i class="fa fa-home nav_icon "></i><span class="nav-label">Back To Site</span> </a>
                             </li>
 
                             <li>
-                                <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Roles</span><span class="fa arrow"></span></a>
+                                <a href="#" class="hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Roles</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="@Url.Action("Create", "Role")" class="hvr-bounce-to-right"><i class="fa fa-plus nav_icon"></i>Create</a></li>
-                                    <li><a href="@Url.Action("Index", "Role")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Edit List</a></li>
+                                    <li><a href="@Url.Action("Create", "UserRole")" class="hvr-bounce-to-right"><i class="fa fa-plus nav_icon"></i>Create</a></li>
+                                    <li><a href="@Url.Action("Index", "UserRole")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Edit List</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-tasks nav_icon"></i> <span class="nav-label">Categories</span><span class="fa arrow"></span></a>
+                                <a href="#" class="hvr-bounce-to-right"><i class="fa fa-newspaper-o nav_icon"></i> <span class="nav-label">News</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="@Url.Action("Create", "Category")" class="hvr-bounce-to-right"><i class="fa fa-plus nav_icon"></i>Create New</a></li>
-                                    <li><a href="@Url.Action("Index", "Category")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Edit List</a></li>
+                                    <li><a href="@Url.Action("Create", "News")" class="hvr-bounce-to-right"><i class="fa fa-plus nav_icon"></i>Create</a></li>
+                                    <li><a href="@Url.Action("Index", "News")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Edit List</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-bars nav_icon"></i> <span class="nav-label">SubCategories</span><span class="fa arrow"></span></a>
+                                <a href="#" class="hvr-bounce-to-right"><i class="fa fa-list-ul nav_icon"></i> <span class="nav-label">Forum</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="@Url.Action("Create", "SubCategory")" class="hvr-bounce-to-right"><i class="fa fa-plus nav_icon"></i>Create</a></li>
-                                    <li><a href="@Url.Action("Index", "SubCategory")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Edit List</a></li>
+                                    <li><a href="@Url.Action("Index", "Topic")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Topic List</a></li>
+                                    <li><a href="@Url.Action("Index", "Reply")" class="hvr-bounce-to-right"><i class="fa fa-reply nav_icon"></i>Reply List</a></li>
+                                    <li><a href="@Url.Action("Index", "Rank")" class="hvr-bounce-to-right"><i class="fa fa-signal nav_icon"></i>Forum Ranks</a></li>
+                                    <li><a href="@Url.Action("Index", "Category")" class="hvr-bounce-to-right"><i class="fa fa-tasks nav_icon"></i>Category List</a></li>
+                                    <li><a href="@Url.Action("Index", "SubCategory")" class="hvr-bounce-to-right"><i class="fa fa-bars nav_icon"></i>SubCategory List</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Users</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Register", "Account")" class="hvr-bounce-to-right"><i class="fa fa-plus nav_icon"></i>Create</a></li>
+                                    <li><a href="@Url.Action("UserManagement", "Admin")" class="hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Edit List</a></li>
                                 </ul>
                             </li>
                         </ul>

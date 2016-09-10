@@ -1,50 +1,57 @@
 ﻿@model tGhWebsite.Models.Reply
 
 @{
-    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Details</h2>
 
-<h2>Details</h2>
+                <div>
+                    <h4>Reply</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Topic.TopicSubject)
+                        </dt>
 
-<div>
-    <h4>Reply</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Topic.TopicSubject)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Topic.TopicSubject)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Topic.TopicSubject)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserId)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.UserId)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ReplyContext)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReplyContext)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ReplyContext)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReplyContext)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ReplyDateTime)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReplyDateTime)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ReplyDateTime)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReplyDateTime)
-        </dd>
-
-    </dl>
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ReplyId }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ReplyId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

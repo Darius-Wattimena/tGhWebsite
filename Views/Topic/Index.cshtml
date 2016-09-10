@@ -1,81 +1,89 @@
 ﻿@model IEnumerable<tGhWebsite.Models.Topic>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Index</h2>
 
-<h2>Index</h2>
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubCategory.SubCategoryName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TopicSubject)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TopicContext)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TopicCreateDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TopicViews)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ThreadReply)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastReplyUsername)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastReplyCreateDate)
+                        </th>
+                        <th></th>
+                    </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SubCategory.SubCategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopicSubject)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopicContext)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopicCreateDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopicViews)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThreadReply)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastReplyUsername)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastReplyCreateDate)
-        </th>
-        <th></th>
-    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TopicSubject)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TopicContext)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TopicCreateDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TopicViews)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ThreadReply)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastReplyUsername)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastReplyCreateDate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.TopicId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.TopicId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.TopicId })
+                            </td>
+                        </tr>
+                    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopicSubject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopicContext)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopicCreateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopicViews)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThreadReply)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastReplyUsername)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastReplyCreateDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TopicId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TopicId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TopicId })
-        </td>
-    </tr>
-}
-
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

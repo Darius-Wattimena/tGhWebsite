@@ -5,7 +5,7 @@ using Microsoft.Owin.Security;
 
 namespace tGhWebsite.Models
 {
-    public class IndexViewModel
+    public partial class IndexViewModel
     {
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }

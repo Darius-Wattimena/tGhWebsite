@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tGhWebsite.Models
 {
     public class Topic
     {
         public int TopicId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
         public int SubCategoryId { get; set; }
         
         public string TopicSubject { get; set; }

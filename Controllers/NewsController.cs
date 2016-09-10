@@ -43,12 +43,14 @@ namespace tGhWebsite.Controllers
         public ActionResult Create([Bind(Include = "NewsId,UserId,NewsTitel,NewsContext,NewsDate")] News news)
         {
             if (!ModelState.IsValid) return View(news);
-            var newsVar = new News()
+            var currentUnix = DateTime.UtcNow.ToUnix();
+            var UserId = User.Identity.GetUserId();
+           var newsVar = new News()
             {
                 NewsContext = news.NewsContext,
                 NewsDate = DateTime.UtcNow.ToUnix(),
                 NewsTitel = news.NewsTitel,
-                UserId = Convert.ToInt32(User.Identity.GetUserId())
+                UserId = User.Identity.GetUserId()
             };
             db.News.Add(newsVar);
             db.SaveChanges();

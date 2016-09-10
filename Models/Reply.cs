@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tGhWebsite.Models
 {
@@ -6,12 +6,14 @@ namespace tGhWebsite.Models
     {
         public int ReplyId { get; set; }
         public int TopicId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
 
         public string ReplyContext { get; set; }
         public int ReplyDateTime { get; set; }
 
         public virtual Topic Topic { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        
+        public ApplicationUser User { get; set; }
     }
 }

@@ -1,51 +1,59 @@
 ﻿@model IEnumerable<tGhWebsite.Models.Reply>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+        <div class="grid-form">
+            <div class="grid-form1">
+                <h2>Index</h2>
 
-<h2>Index</h2>
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Topic.TopicSubject)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ReplyContext)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ReplyDateTime)
+                        </th>
+                        <th></th>
+                    </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic.TopicSubject)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReplyContext)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReplyDateTime)
-        </th>
-        <th></th>
-    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Topic.TopicSubject)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReplyContext)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReplyDateTime)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ReplyId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ReplyId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ReplyId })
+                            </td>
+                        </tr>
+                    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic.TopicSubject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReplyContext)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReplyDateTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReplyId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReplyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReplyId })
-        </td>
-    </tr>
-}
-
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

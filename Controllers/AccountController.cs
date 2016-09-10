@@ -152,7 +152,7 @@ namespace tGhWebsite.Controllers
             var db = new ApplicationDbContext();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserRoleId = 1};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -166,18 +166,17 @@ namespace tGhWebsite.Controllers
                     var editUser = db.Users.FirstOrDefault(x => x.UserName == model.UserDisplayName);
                     if (editUser != null)
                     {
+                        var ipTracker = new IpTracker();
                         editUser.UserDisplayName = model.UserDisplayName;
                         editUser.UserTitel = "Test123";
                         editUser.UserSignature = "Test456";
-                        editUser.UserTimezone = null;
-                        editUser.UserLocation = null;
-                        editUser.UserRealName = null;
-                        editUser.UserUrl = null;
-                        editUser.UserSteam = null;
-                        editUser.UserRegistrationIp = "1.1.1.1";
-                        editUser.UserDateOfBirth = null;
+                        editUser.UserLocation = model.UserLocation;
+                        editUser.UserRealName = model.UserRealName;
+                        editUser.UserUrl = model.UserUrl;
+                        editUser.UserSteam = model.UserSteam;
+                        editUser.UserRegistrationIp = ipTracker.GetIpAddress();
+                        editUser.UserDateOfBirth = model.UserDateOfBirth.ToUnix();
                         editUser.UserRegistrationDate = DateTime.UtcNow.ToUnix();
-                        editUser.UserRoleId = 1;
                         db.Entry(editUser);
                         db.SaveChanges();
                     }

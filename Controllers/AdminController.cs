@@ -32,13 +32,3 @@ namespace tGhWebsite.Controllers
         }
     }
 }
-/*
- * @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.UserName)</td>
-                            <td>@Html.DisplayFor(modelItem => item.UserDisplayName)</td>
-                            <td>@Html.DisplayFor(modelItem => item.UserDateOfBirth)</td>
-                        </tr>
-                    }
-*/
